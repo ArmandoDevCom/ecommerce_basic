@@ -1,0 +1,64 @@
+/* Archivo de estilos */
+
+/* HomePage */
+
+.Main_homepage {
+    background-image: url(/public/img/2148286207.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -100px;
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding-right: 50px;
+}
+
+.Main_homepage h1 {
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.Main_homepage p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo del Pie de Pagina */
+
+/* Footer */
+
+.contenedor_footer {
+    background-color: rgb(210, 210, 210);
+    padding: 30px;
+}
+
+.subcontenedor_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subcontenedor_footer img {
+    width: 80px;
+    height: auto;
+    padding-bottom: 15px;
+}
+
+.contenedor_cr {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.contenedor_iconos i {
+    color: black;
+    padding: 10px;
+    
+}

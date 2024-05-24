@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar'
 import ProductListPage from '../pages/ProductListPage'
 import ProfilePage from '../pages/ProfilePage'
 import CartPage from '../pages/CartPage'
+import Footer from '../components/Footer'
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
 
             <Route path='/*' element={<Navigate to="/" replace />} />
         </Routes>
+        <Footer />
     </Router>
   )
 }
