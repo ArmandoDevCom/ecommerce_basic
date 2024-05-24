@@ -6,6 +6,7 @@ import ProductListPage from '../pages/ProductListPage'
 import ProfilePage from '../pages/ProfilePage'
 import CartPage from '../pages/CartPage'
 import Footer from '../components/Footer'
+import ProductSinglePage from '../pages/ProductSinglePage'
 
 const AppRouter = () => {
   return (
@@ -16,6 +17,8 @@ const AppRouter = () => {
             <Route path='/catalogo' element={<ProductListPage />} />
             <Route path='/miperfil' element={<ProfilePage />} />
             <Route path='/carrito' element={<CartPage />} />
+            <Route path='/product/:id' element={<ProductSinglePage />} />
+
 
             <Route path='/*' element={<Navigate to="/" replace />} />
         </Routes>

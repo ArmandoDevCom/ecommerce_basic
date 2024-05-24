@@ -1,5 +1,16 @@
 /* Archivo de estilos */
 
+/* Header */
+
+/* NavBar */
+
+.boton_carrito i {
+    color: rgb(235, 207, 0);
+    padding-left: 10px;
+    font-size: 25px;
+}
+
+
 /* HomePage */
 
 .Main_homepage {
@@ -29,6 +40,80 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 23px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.bloque_destacados {
+    padding-bottom: 80px;
+}
+
+.bloque_destacados h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.bloque_descuento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.bloque_descuentoinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;  
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bloque_descuentoinfo h3 {
+    font-size: 100px;
+    font-weight: 800;
+}
+
+.bloque_descuentoinfo h4 {
+    font-size: 30px;
+}
+
+.bloque_descuentoinfo h5 {
+    font-size: 100px;
+    font-weight: 800;
+    color: yellow;
+}
+
+.bloque_imgdescuento img {
+    width: 100%;
+    object-position: center;
+}
+
+.bloque_newsletter {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: black;
+    
+    
+}
+
+.bloque_newsletter h5 {
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    color: yellow;
+}
+.formulario_newsletter {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.formulario_newsletter input {
+    width: 500px;
 }
 
 /* Estilo del Pie de Pagina */
@@ -61,4 +146,50 @@
     color: black;
     padding: 10px;
     
+}
+
+/* Estilo de tarjetas de producto */
+
+/* FeaturedProducts */
+
+.tarjeta_de_producto:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.tarjeta_de_producto img {
+    height: 300px;
+    width: 100%;
+}
+
+/* Product List Page */
+
+.catalogo_producto:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.contenedor_prduct_catalogo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: space-around;
+}
+
+.subcontenedor_prduct_catalogo {
+    padding-top: 30px;
+    height: auto;
+}
+
+.catalogo_producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.catalogo_producto img {
+    height: 210px;
+    width: 100%;
 }
