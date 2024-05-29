@@ -6,9 +6,10 @@
 
 .boton_carrito i {
     color: rgb(235, 207, 0);
-    padding-left: 10px;
+    padding-right: 10px;
     font-size: 25px;
 }
+
 
 
 /* HomePage */
@@ -193,3 +194,40 @@
     height: 210px;
     width: 100%;
 }
+
+/* Login Page o Página de Inicio de Sesión */
+
+.contenedor_formularioiniciosesion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding-top: 50px;
+    background-color: rgb(235, 235, 235);
+}
+
+.contenedor_formularioiniciosesion img {
+    width: 100px;
+}
+
+.contenedor_formularioiniciosesion h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+}
+
+.formulario_iniciosesion {
+    width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.formulario_iniciosesion label {
+    font-weight: 600;
+}
+
+/* Sign in Page o Pagina de Registro */
+

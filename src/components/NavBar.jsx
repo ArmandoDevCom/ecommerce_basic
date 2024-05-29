@@ -20,13 +20,21 @@ const NavBar = () => {
         <li className="nav-item">
           <NavLink className="nav-link" to="/catalogo">Catálogo</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/miperfil">Mi Perfil</NavLink>
-        </li>
       </ul>
       <div className="boton_carrito">
       <NavLink to="/carrito"><i class="bi bi-bag-fill"></i></NavLink>
       </div>
+      <div className="dropdown boton_sesion">
+  <button className="btn btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Mi cuenta
+  </button>
+  <ul className="dropdown-menu">
+    <li><NavLink className="dropdown-item" to="/miperfil">Mi Perfil</NavLink></li>
+    <li><NavLink className="dropdown-item" to="/login">Iniciar sesión</NavLink></li>
+    <li><NavLink className="dropdown-item" to="/signin">Registrarse</NavLink></li>
+  </ul>
+</div>
+
     </div>
   </div>
 </nav>
