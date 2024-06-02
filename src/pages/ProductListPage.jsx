@@ -1,42 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
+import { useContext, useEffect } from "react";
+import ProductContext from "../context/ProductContext";
+import { NavLink } from "react-router-dom";
 
 const ProductListPage = () => {
-  const [products, setProducts] = useState([]);
+
+  const { obtenerProductos, products } = useContext(ProductContext)
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
-      .then(response => {
-        setProducts(response.data);
-      })
-      .catch(error => {
-        console.error("Hubo un error al obtener los productos!", error);
-      });
-  }, []);
+    obtenerProductos();
+  }, [obtenerProductos])
 
   return (
-    <div className="container catalogo">
-      <div className="contenedor_prduct_catalogo">
-        {products.map(product => (
-          <div className="subcontenedor_prduct_catalogo" key={product.id}>
-            <div className="card catalogo_producto" style={{ width: '18rem' }}>
-              {/* Envuelve la imagen y el título del producto en un enlace */}
-              <Link to={`/product/${product.id}`}>
-                <img src={product.image} className="" alt={product.title} />
-                <div className="card-body">
-                  <h5 className="card-title">{product.title}</h5>
+    <>
+    <div className="container">
+      <header className="row col">
+        <h1>Catalogo de productos</h1>
+      </header>
+      <main>
+        <article className="col">
+          <p>Contenido de la pagina de productos</p>
+        </article>
+      </main>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+          {
+            products.map((product) => (
+              <div key={product.id} className="col">
+                <div className="card h-100">
+                  <img src={product.image} className="card-img-top" alt={product.title} />
+                  <div className="card-body">
+                    <h5 className="card-title">{product.title}</h5>
+                    <p className="card-text">{product.description}</p>
+                    <h3 className="card-price">{product.price}</h3>
+                  </div>
+                  <button type="button" class="btn btn-primary">Agregar al carrito</button>
+                  <NavLink to={`/product/${product.id}`}>
+                    <button type="button" class="btn btn-warning btn-lg" >Ver más...</button>
+                  </NavLink>
                 </div>
-              </Link>
-              <div className="card-body">
-                <p className="card-text"><strong>${product.price}</strong></p>
-                <a href="#" className="btn btn-warning w-100">Añadir al carrito</a>
               </div>
-            </div>
-          </div>
-        ))}
+            ))
+          }
       </div>
     </div>
+    </>
   );
 };
 

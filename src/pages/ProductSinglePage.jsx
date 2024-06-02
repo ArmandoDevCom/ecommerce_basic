@@ -1,41 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useContext, useEffect } from "react";
+import ProductContext from "../context/ProductContext";
+import { useParams } from "react-router-dom";
 
 const ProductSinglePage = () => {
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
+
+  const { obtenerProducto, product } = useContext(ProductContext)
+
+  const {id} = useParams()
 
   useEffect(() => {
-    axios.get(`https://fakestoreapi.com/products/${id}`)
-      .then(response => {
-        setProduct(response.data);
-      })
-      .catch(error => {
-        console.error("Hubo un error al obtener los detalles del producto!", error);
-      });
-  }, [id]);
+    obtenerProducto(id)
+  }, [obtenerProducto, id])
 
   return (
-    <div className="container">
-      {product ? (
-        <div className="row">
-          <div className="col-md-6">
-            <img src={product.image} alt={product.title} className="" />
-          </div>
-          <div className="col-md-6">
-            <h2>{product.title}</h2>
-            <p><strong>Precio:</strong> ${product.price}</p>
-            <p><strong>Categoría:</strong> {product.category}</p>
-            <p><strong>Descripción:</strong> {product.description}</p>
-            {/* Aquí puedes agregar más detalles del producto según tus necesidades */}
-          </div>
-        </div>
-      ) : (
-        <p>Cargando...</p>
-      )}
+    <main className=" container">
+      {
+        product && (
+          <div className="card mb-3">
+  <div className="row g-0">
+    <div className="col-md-4">
+      <img src={product.image} className="img-fluid rounded-start" alt={product.title} />
     </div>
-  );
-};
+    <div className="col-md-8">
+      <div className="card-body">
+        <h5 className="card-title">{product.title}</h5>
+        <p className="card-text">{product.description}</p>
+        <h3 className="card-title">{product.price}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+        )
+      }
+    </main>
+  )
+}
 
-export default ProductSinglePage;
+export default ProductSinglePage

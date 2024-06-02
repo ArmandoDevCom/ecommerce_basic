@@ -12,4 +12,11 @@ const loginService = async (form) => {
    return resp;
 }
 
-export { loginService }
+const registerService = async (form) => {
+
+   const resp = await axios.post("https://ecommerce-basic-api.onrender.com/auth/registrar_usuario", form)
+
+   return resp;
+}
+
+export { loginService, registerService }

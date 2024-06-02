@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom"
-import { loginService } from "../services/authServices"
-import { useState } from "react"
+// import { loginService } from "../services/authServices"
+import { useState, useContext } from "react";
+import AuthContext from "../context/authcontext"
 
 const initForm = {
   user_name: "",
@@ -9,19 +9,24 @@ const initForm = {
 
 const LoginPage = () => {
   const [form, setForm] = useState(initForm)
+  const {user, iniciarSesion} = useContext(AuthContext)
+  // const [user, setUser] = useState({})
 
-  const handleIniciarSesion = async (event) => {
-    event.preventDefault()
+  const handleIniciarSesion = async (e) => {
+    e.preventDefault()
+
+    await iniciarSesion(form)
 
     // console.log(form)
 
-    try {
-      const resp = await loginService(form)
-      console.log(resp.data.data)
+    // try {
+    //   const resp = await loginService(form)
+    //   console.log(resp.data.data)
+    //   setUser(resp.data.data)
 
-    } catch (error) {
-        console.log(error.response.data.msg)
-    }
+    // } catch (error) {
+    //     console.log(error.response.data.msg)
+    // }
   }
 
     const handleChange = (e) => {
@@ -63,6 +68,11 @@ const LoginPage = () => {
       </a>
     </div>
   </form>
+  <section className="row">
+          <article className="col">
+            <pre>{JSON.stringify(user, null, 2)}</pre>
+          </article>
+        </section>
 </div>
 
 
