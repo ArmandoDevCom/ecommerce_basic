@@ -3,7 +3,7 @@ import AuthContext from "../context/authcontext"
 import { useContext } from "react"
 
 const NavBar = () => {
-  const { user } = useContext(AuthContext)
+  const { user, logout } = useContext(AuthContext)
 
   return (
 
@@ -19,24 +19,34 @@ const NavBar = () => {
    
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} aria-current="page" to="/">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/catalogo">Catálogo</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} aria-current="page" to="/catalogo">Catálogo</NavLink>
         </li>
       </ul>
       <div className="boton_carrito">
-      <NavLink to="/carrito"><i class="bi bi-bag-fill"></i></NavLink>
+      <NavLink className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} to="/cart"><i class="bi bi-bag-fill"></i></NavLink>
       </div>
       <div className="dropdown boton_sesion">
   <button className="btn btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    { user ? user.user_name : "Cuenta"}
+    { user.user_name ? user.user_name : "Cuenta"}
   </button>
-  <ul className="dropdown-menu">
-    <li><NavLink className="dropdown-item" to="/miperfil">Mi Perfil</NavLink></li>
-    <li><NavLink className="dropdown-item" to="/login">Iniciar sesión</NavLink></li>
-    <li><NavLink className="dropdown-item" to="/signin">Registrarse</NavLink></li>
+
+  <ul className="dropdown-menu dropdown-menu-end">
+  {user.user_name ? (
+    <>
+    <li><NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/miperfil">Mi Perfil</NavLink></li>
+    <li><NavLink className="dropdown-item" type="button" onClick={logout}>Logout</NavLink></li>
+    </>
+  ) : (
+    <>
+    <li><NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/login">Iniciar sesión</NavLink></li>
+    <li><NavLink className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"} to="/signin">Registrarse</NavLink></li>
+  </>
+  )}
   </ul>
+
 </div>
 
     </div>

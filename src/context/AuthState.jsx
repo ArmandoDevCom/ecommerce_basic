@@ -1,11 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useCallback, useReducer } from "react";
 import PropTypes from "prop-types";
 import AuthContext from "./authcontext";
 import authReducer from "./authreducer";
-import { loginService, registerService } from "../services/authServices";
+import { loginService, registerService, renovarTokenService } from "../services/authServices";
 
 const initialState = {
-    user: null,
+    user: {},
 };
 
 const AuthState = ({ children }) => {
@@ -21,6 +21,8 @@ const AuthState = ({ children }) => {
                 type: "Iniciar_sesion",
                 payload: resp.data.data,
             });
+
+            localStorage.setItem("token", resp.data.token)
         } catch (error) {
             console.log(error.response?.data?.msg || error.message);
         }
@@ -33,10 +35,37 @@ const AuthState = ({ children }) => {
                 type: "registrar_usuario",
                 payload: resp.data.data,
             });
+
+            localStorage.setItem("token", resp.data.token)
+
         } catch (error) {
             console.log(error.response?.data?.msg || error.message);
         }
     };
+
+    const renovarToken = useCallback ( async () => {
+        try {
+            const resp = await renovarTokenService();
+            // console.log("Login successful", resp.data.data);
+            dispatch({
+                type: "Iniciar_sesion",
+                payload: resp.data.data,
+            });
+
+            localStorage.setItem("token", resp.data.token)
+
+        } catch (error) {
+            console.log(error.response?.data?.msg || error.message);
+        }
+    }, [])
+
+    const logout = () => {
+        dispatch({
+          type: "LOGOUT",
+        });
+    
+        localStorage.removeItem("token");
+      };
 
     return (
         <AuthContext.Provider
@@ -44,6 +73,8 @@ const AuthState = ({ children }) => {
                 user: globalState.user,
                 iniciarSesion,
                 registrarUsuario,
+                renovarToken,
+                logout
             }}
         >
             {children}
