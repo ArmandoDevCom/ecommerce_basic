@@ -10,7 +10,7 @@ const NavBar = () => {
 <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" >
   <div className="container">
   <NavLink class="navbar-brand" to="/">
-      <img src="/public/eshop.png" alt="eShop" width={30} height={30} />
+      <img src="https://res.cloudinary.com/dkolmdcbn/image/upload/v1717406478/eshop_pg4t3d.png" alt="eShop" width={30} height={30} />
     </NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />

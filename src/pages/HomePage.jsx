@@ -19,7 +19,7 @@ const HomePage = () => {
           <h5>HDES2024</h5>
         </div>
         <div className="bloque_imgdescuento">
-          <img src="/public/img/66514.jpg" alt="hombre celabrando descuento online" />
+          <img src="https://res.cloudinary.com/dkolmdcbn/image/upload/v1717406486/66514_tzcxqx.jpg" alt="hombre celabrando descuento online" />
         </div>
       </div>
       <div className="bloque_newsletter">
