@@ -8,7 +8,6 @@ import Footer from '../components/Footer'
 import ProductSinglePage from '../pages/ProductSinglePage'
 import LoginPage from '../pages/LoginPage'
 import SignInPage from '../pages/SignInPage'
-import CheckOutPage from '../pages/CheckOutPage'
 import { useContext, useEffect } from "react"
 import AuthContext from '../context/authcontext'
 
@@ -44,9 +43,6 @@ const AppRouter = () => {
                 </>
               )
             }
-
-
-            <Route path='/checkout' element={<CheckOutPage />} />
 
             <Route path='/*' element={<Navigate to="/" replace />} />
         </Routes>

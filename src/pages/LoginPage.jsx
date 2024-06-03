@@ -62,17 +62,17 @@ const LoginPage = () => {
     <div className="d-grid gap-2">
       <button type="submit" className="btn btn-primary">Iniciar sesión</button>
     </div>
-    <div>
+    {/* <div>
       <a href="/signin">
         <p className="restaurar_contraseña">Restaurar contraseña</p>
       </a>
-    </div>
+    </div> */}
   </form>
-  <section className="row">
+  {/* <section className="row">
           <article className="col">
             <pre>{JSON.stringify(user, null, 2)}</pre>
           </article>
-        </section>
+        </section> */}
 </div>
 
 

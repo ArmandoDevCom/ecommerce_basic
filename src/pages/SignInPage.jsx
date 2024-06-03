@@ -60,11 +60,11 @@ const SignInPage = () => {
           <button type="submit" className="btn btn-primary">Crear cuenta</button>
         </div>
       </form>
-      <section className="row">
+      {/* <section className="row">
         <article className="col">
           <pre>{JSON.stringify(user, null, 2)}</pre>
         </article>
-      </section>
+      </section> */}
     </div>
   );
 };

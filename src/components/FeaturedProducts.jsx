@@ -1,36 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useContext, useEffect, useState } from "react";
+import ProductContext from "../context/ProductContext";
+import { NavLink } from "react-router-dom";
 
 const ProductListPage = () => {
-  const [products, setProducts] = useState([]);
+  const { obtenerProductos, products, addCartProduct } = useContext(ProductContext);
+  const [visibleProducts, setVisibleProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products?limit=4')
-      .then(response => {
-        setProducts(response.data);
-      })
-      .catch(error => {
-        console.error("There was an error fetching the products!", error);
-      });
-  }, []);
+    obtenerProductos();
+  }, [obtenerProductos]);
+
+  useEffect(() => {
+    setVisibleProducts(products.slice(0, 4));
+  }, [products]);
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        {products.map(product => (
-          <div className="col-md-3 mb-4" key={product.id}>
-            <div className="card h-100 tarjeta_de_producto">
-              <img src={product.image} className="card-img-top" alt={product.title} />
-              <div className="card-body">
-                <h5 className="card-title">{product.title}</h5>
-                <p className="card-text"><strong>${product.price}</strong></p>
-                <a href="#" className="btn btn-warning w-100">Añadir al carrito</a>
+    <>
+      <div className="container">
+        <div className="row d-flex align-items-stretch">
+          {visibleProducts.map((product) => (
+            <div key={product.id} className="col-md-3 mb-4">
+              <div className="card h-100">
+                <img src={product.image} className="card-img-top" alt={product.title} />
+                <div className="card-body d-flex flex-column">
+                  <h5 className="card-title">{product.title}</h5>
+                  <h3 className="card-price">{product.price}</h3>
+                  <div className="mt-auto">
+                    <button
+                      type="button"
+                      className="btn btn-primary me-2"
+                      onClick={() => addCartProduct(product)}
+                    >
+                      Agregar al carrito
+                    </button>
+                    <NavLink to={`/product/${product.id}`}>
+                      <button type="button" className="btn btn-warning">
+                        Ver más...
+                      </button>
+                    </NavLink>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
