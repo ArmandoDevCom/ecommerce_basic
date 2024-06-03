@@ -7,7 +7,7 @@ const Footer = () => {
             <div className='container'>
                 <div className="nav-item subcontenedor_footer">
                     <NavLink className="" to="/">
-                        <img src="/public/eshop.png" alt />
+                        <img src="https://res.cloudinary.com/dkolmdcbn/image/upload/v1717406478/eshop_pg4t3d.png" alt />
                     </NavLink>
                     <div className="contenedor_iconos">
                         <a href="https://www.facebook.com"><i class="bi bi-facebook"></i></a>
